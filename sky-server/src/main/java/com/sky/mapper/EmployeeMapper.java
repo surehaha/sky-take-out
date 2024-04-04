@@ -26,4 +26,8 @@ public interface EmployeeMapper {
 
     /*分页查询*/
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+
+
+    /*启用或者金庸员工账号，在xml文件实现*/
+    void update(Employee employee);
 }

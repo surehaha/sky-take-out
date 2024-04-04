@@ -66,6 +66,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employee;
     }
 
+
     //新增员工
     @Override
     public void save(EmployeeDTO employeeDTO) {
@@ -91,6 +92,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeMapper.insert(employee);
     }
 
+
     /*
     * 分页查询*/
     @Override
@@ -105,4 +107,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return new PageResult(total,records);
     }
+
+
+    /*启用禁用员工账号*/
+    @Override
+    public void startOrStop(Integer status, long id) {
+        //update employee set status=?where id=?
+        //在EmployeeMapper中实现，所以调用它的方法即可，动态传递参数过去
+        Employee employee = Employee.builder().status(status).id(id).build();
+
+        employeeMapper.update(employee);
+    }
+
+
+
 }
